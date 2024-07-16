@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Prediction</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #ff4d94;
+        }
+        img {
+            display: left-;
+            margin: 0 auto 20px;
+            width: 100px; /* Adjust as needed */
+        }
+    </style>
+    <script>
+        function calculateBMI() {
+            let weight = parseFloat(document.getElementById('weight').value);
+            let height = parseFloat(document.getElementById('height').value) / 100;
+            let bmi = weight / (height * height);
+            document.getElementById('BMI').value = bmi.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        
+        <a href="/" aria-current="page" class="w-inline-block w--current"><img src="{{ url_for('static', filename='images/Asset-3.png') }}"   loading="lazy" width="132" sizes="(max-width: 479px) 50px, (max-width: 991px) 17vw, (max-width: 1919px) 12vw, 131.98818969726562px" alt="" srcset="{{ url_for('static', filename='images/Asset-3-p-500.png') }} 500w, 
+            {{ url_for('static', filename='images/Asset-3-p-800.png') }} 800w, 
+            {{ url_for('static', filename='images/Asset-3-p-1080.png') }} 1080w, 
+            {{ url_for('static', filename='images/Asset-3.png') }} 1880w"  class="image-5-copy"></a>
+        
+        <h1 style="font-size: 2rem; /* default font size */">
+            Enter the details to get the Diagnosis Prediction
+          </h1>
+          
+          <style>
+            @media screen and (max-width: 991px) {
+              h1 {
+                font-size: 1.5rem; /* Adjust for medium-sized screens */
+              }
+            }
+          
+            @media screen and (max-width: 479px) {
+              h1 {
+                font-size: 1.2rem; /* Adjust for small screens */
+              }
+            }
+          </style>
+
+
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="CAUSE_MENOPAUSE">CAUSE_MENOPAUSE:</label>
+                <select name="CAUSE_MENOPAUSE" required>
+                    <option value="">Select</option>
+                    <option value="CHEMO-INDUCED">CHEMO-INDUCED</option>
+                    <option value="HORMONAL TREATMENT">HORMONAL TREATMENT</option>
+                    <option value="NATURAL">NATURAL</option>
+                    <option value="HYSTERECTOMY">HYSTERECTOMY</option>
+                    <option value="NR">NR</option>
+                    
+        </select><br>
+
+        <label for="PAST_SURGERY">PAST_SURGERY:</label>
+        <select name="PAST_SURGERY" required>
+            <option value="">Select</option>
+            <option value="NR">NR</option>
+            <option value="YES">YES</option>
+            <option value="NO">NO</option>
+            <!-- Add all possible alternatives here -->
+        </select><br>
+
+        <label for="WEIGHT (IN KGS)">WEIGHT (IN KGS):</label>
+        <input type="number" step="0.5" id="weight" name="WEIGHT (IN KGS)" required><br>
+
+        <label for="HEIGHT (IN CMS)">HEIGHT (IN CMS):</label>
+        <input type="number" step="0.5" id="height" name="HEIGHT (IN CMS)" onchange="calculateBMI()" required><br>
+
+        <label for="STERILISATION (B/L TUBAL LIGATION)">STERILISATION (B/L TUBAL LIGATION):</label>
+        <select name="STERILISATION (B/L TUBAL LIGATION)" required>
+            <option value="">Select</option>
+            <option value="YES">YES</option>
+            <option value="NO">NO</option>
+            <!-- Add all possible alternatives here -->
+        </select><br>
+
+        <label for="NON-VEG_FREQUENCY">NON-VEG_FREQUENCY:</label>
+        <select name="NON-VEG_FREQUENCY" required>
+            <option value="">Select</option>
+            <option value="DAILY">DAILY</option>
+            <option value="FORTNIGHTLY">FORTNIGHTLY</option>
+            <option value="HALF YEARLY">HALF YEARLY</option>
+            <option value="MONTHLY">MONTHLY</option>
+            <option value="NR">NR</option>
+            <option value="QUARTERLY">QUARTERLY</option>
+            <option value="THRICE WEEKLY">THRICE WEEKLY</option>
+            <option value="TWICE WEEKLY">TWICE WEEKLY</option>
+            <option value="WEEKLY">WEEKLY</option>
+            <option value="YEARLY">YEARLY</option>
+            <!-- Add all possible alternatives here -->
+        </select><br>
+
+        <label for="EDUCATION">EDUCATION:</label>
+        <select name="EDUCATION" required>
+            <option value="">Select</option>
+            <option value="GRADUATE">GRADUATE</option>
+            <option value="ILLITERATE">ILLITERATE</option>
+            <option value="INTERMEDIATE">INTERMEDIATE</option>
+            <option value="NR">NR</option>
+            <option value="POST GRADUATE">POST GRADUATE</option>
+            <option value="PRIMARY">PRIMARY</option>
+            <option value="SECONDARY">SECONDARY</option>
+           
+            <!-- Add all possible alternatives here -->
+        </select><br>
+
+        <label for="PHYSICAL ACTIVITY_GRADE">PHYSICAL ACTIVITY_GRADE:</label>
+        <select name="PHYSICAL ACTIVITY_GRADE" required>
+            <option value="">Select</option>
+            <option value="MILD">MILD</option>
+            <option value="MODERATE">MODERATE</option>
+            <option value="NIL">NIL</option>
+            <option value="NR">NR</option>
+            <option value="VIGROUS">VIGROUS</option>
+            <!-- Add all possible alternatives here -->
+        </select><br>
+
+        <label for="RBS">RBS:</label>
+        <input type="number" step="0.01" name="RBS" required><br>
+
+        <label for="WHR">WHR:</label>
+        <input type="number" step="0.01" name="WHR" required><br>
+
+        <label for="RESIDENCE">RESIDENCE:</label>
+        <select name="RESIDENCE" required>
+            <option value="">Select</option>
+            <option value="URBAN">URBAN</option>
+            <option value="RURAL">RURAL</option>
+            <option value="NR">NR</option>
+            <!-- Add all possible alternatives here -->
+        </select><br>
+
+        <label for="SES">SES:</label>
+        <select name="SES" required>
+            <option value="">Select</option>
+            <option value="Lower">Lower</option>
+            <option value="Lower Middle">Lower Middle</option>
+            <option value="Middle">Middle</option>
+            <option value="Upper">Upper</option>
+            <option value="Upper Middle">Upper Middle</option>
+            <!-- Add all possible alternatives here -->
+        </select><br>
+
+        <label for="SBP">SBP:</label>
+        <input type="number" step="0.5" name="SBP" required><br>
+
+        <label for="WHO_BMI_CAT">WHO_BMI_CAT:</label>
+        <select name="WHO_BMI_CAT" required>
+            <option value="">Select</option>
+            <option value="0BESE CLASS I">0BESE CLASS I</option>
+            <option value="0VERWEIGHT">0VERWEIGHT</option>
+            <option value="NORMAL">NORMAL</option>
+            <option value="NR">NR</option>
+            <option value="OBESE CLASS I">OBESE CLASS I</option>
+            <option value="OBESE CLASS II">OBESE CLASS II</option>
+            <option value="OBESE CLASS III">OBESE CLASS III</option>
+            <option value="OVERWEIGHT">OVERWEIGHT</option>
+            <option value="PRE OBESE">PRE OBESE</option>
+            <option value="UNDERWEIGHT">UNDERWEIGHT</option>
+            <!-- Add all possible alternatives here -->
+        </select><br>
+
+        <label for="WAIST_CMS">WAIST_CMS:</label>
+        <input type="number" step="0.01" name="WAIST_CMS" required><br>
+
+        <label for="ABD_OBESITY">ABD_OBESITY:</label>
+        <select name="ABD_OBESITY" required>
+            <option value="">Select</option>
+            <option value="#DIV/0!">#DIV/0!</option>
+            <option value="#VALUE!">#VALUE!</option>
+            <option value="YES">YES</option>
+            <option value="NO">NO</option>
+            
+            <!-- Add all possible alternatives here -->
+        </select><br>
+
+        <label for="BMI">BMI:</label>
+        <input type="number" step="0.01" id="BMI" name="BMI" readonly><br>
+
+        <input type="submit" value="Predict">
+    </form>
+    <button onclick="location.href='/'">Go to Home Page</button>
+</body>
+</html>    
