@@ -87,7 +87,7 @@
 
         <form action="/predict" method="post">
             <div class="form-group">
-                <label for="CAUSE_MENOPAUSE">CAUSE_MENOPAUSE:</label>
+                <label for="CAUSE_MENOPAUSE">CAUSE_MENOPAUSE(How was your menopause achieved, if any):</label>
                 <select name="CAUSE_MENOPAUSE" required>
                     <option value="">Select</option>
                     <option value="CHEMO-INDUCED">CHEMO-INDUCED</option>
@@ -98,7 +98,7 @@
                     
         </select><br>
 
-        <label for="PAST_SURGERY">PAST_SURGERY:</label>
+        <label for="PAST_SURGERY">PAST_SURGERY(Whether you have any records of past surgery):</label>
         <select name="PAST_SURGERY" required>
             <option value="">Select</option>
             <option value="NR">NR</option>
@@ -162,10 +162,10 @@
             <!-- Add all possible alternatives here -->
         </select><br>
 
-        <label for="RBS">RBS:</label>
+        <label for="RBS">RBS(Random Blood Sugar):</label>
         <input type="number" step="0.01" name="RBS" required><br>
 
-        <label for="WHR">WHR:</label>
+        <label for="WHR">WHR(Waist-Hip ratio, generally take values ranging from 0.6 to 1.8 for women):</label>
         <input type="number" step="0.01" name="WHR" required><br>
 
         <label for="RESIDENCE">RESIDENCE:</label>
@@ -177,7 +177,7 @@
             <!-- Add all possible alternatives here -->
         </select><br>
 
-        <label for="SES">SES:</label>
+        <label for="SES">SES(Socio-Economic status):</label>
         <select name="SES" required>
             <option value="">Select</option>
             <option value="Lower">Lower</option>
@@ -188,7 +188,7 @@
             <!-- Add all possible alternatives here -->
         </select><br>
 
-        <label for="SBP">SBP:</label>
+        <label for="SBP">SBP(Systolic Blood Pressure):</label>
         <input type="number" step="0.5" name="SBP" required><br>
 
         <label for="WHO_BMI_CAT">WHO_BMI_CAT:</label>
@@ -207,7 +207,7 @@
             <!-- Add all possible alternatives here -->
         </select><br>
 
-        <label for="WAIST_CMS">WAIST_CMS:</label>
+        <label for="WAIST_CMS">WAIST_CMS(Measurement of Waist in centimetres,generally ranging from 60 to 120 for women):</label>
         <input type="number" step="0.01" name="WAIST_CMS" required><br>
 
         <label for="ABD_OBESITY">ABD_OBESITY:</label>
